@@ -8,14 +8,15 @@ Usage:
 """
 import os
 import sqlite3
-from random import randit, choice
-from faker import Faker
 from random import randint, choice
+from faker import Faker
+
 
 # Determine the path of the database
 script_dir = os.path.dirname(os.path.abspath(__file__))
 db_path = os.path.join(script_dir, 'social_network.db')
-
+con = sqlite3.connect('social_network.db')
+cur = con.cursor()
 def main():
     create_relationships_table()
     populate_relationships_table()
